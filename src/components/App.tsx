@@ -26,10 +26,11 @@ import {shoot} from './List.ts';
 
 function App() {
 
-  const handleInput=(event:any)=>
+  const handleInput=(event:React.ChangeEvent<HTMLInputElement>, arg1:string)=>
 
   {
-    setValue(event.target.value);    
+    setValue(event.target.value);  
+    console.log(arg1);  
   }
 
   const [count, setCount]= useState(0);
@@ -44,6 +45,7 @@ function App() {
   function handleEnter()
   {
     setShowText(true);
+  
   }
 
   return (
@@ -51,7 +53,7 @@ function App() {
       <p>Button clicked {count} times</p>
      <button onClick={clickCount}>Increase</button>
      <button onClick={()=>shoot("Faizan Scored a goal")}>Shoot</button>
-     <input type="text" onChange={(event)=>handleInput(event)} value={value}></input>
+     <input type="text" onChange={(event)=>handleInput(event,"Munir")} value={value}></input>
      <button onClick={(handleEnter)}>Enter</button>
      {showText && <p>{value}</p>}
     </div>
