@@ -3,6 +3,8 @@ import '../App.css'; // Instead of 'src/App.css'
 import {shoot} from './List.ts';
 import LifeCycle from './LifeCycle.tsx';
 import Ref  from './Ref.tsx';
+import { Reducer } from 'react';
+import Reducer_code from './Reducer_code.tsx';
 
 
 // Props definition
@@ -62,7 +64,8 @@ function App() {
 
      {/* <LifeCycle></LifeCycle> */}
 
-     <Ref></Ref>
+     {/* <Ref></Ref> */}
+     <Reducer_code></Reducer_code>
     </div>
   );
 }
