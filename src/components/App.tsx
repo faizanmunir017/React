@@ -1,6 +1,8 @@
 import { useState } from 'react';
-import './App.css';
+import '../App.css'; // Instead of 'src/App.css'
 import {shoot} from './List.ts';
+import LifeCycle from './LifeCycle.tsx';
+
 
 // Props definition
 // interface GreetingProps {
@@ -50,12 +52,14 @@ function App() {
 
   return (
     <div>
-      <p>Button clicked {count} times</p>
+      {/* <p>Button clicked {count} times</p>
      <button onClick={clickCount}>Increase</button>
      <button onClick={()=>shoot("Faizan Scored a goal")}>Shoot</button>
      <input type="text" onChange={(event)=>handleInput(event,"Munir")} value={value}></input>
      <button onClick={(handleEnter)}>Enter</button>
-     {showText && <p>{value}</p>}
+     {showText && <p>{value}</p>} */}
+
+     <LifeCycle></LifeCycle>
     </div>
   );
 }
