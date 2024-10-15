@@ -2,6 +2,7 @@ import { useState } from 'react';
 import '../App.css'; // Instead of 'src/App.css'
 import {shoot} from './List.ts';
 import LifeCycle from './LifeCycle.tsx';
+import Ref  from './Ref.tsx';
 
 
 // Props definition
@@ -59,7 +60,9 @@ function App() {
      <button onClick={(handleEnter)}>Enter</button>
      {showText && <p>{value}</p>} */}
 
-     <LifeCycle></LifeCycle>
+     {/* <LifeCycle></LifeCycle> */}
+
+     <Ref></Ref>
     </div>
   );
 }
