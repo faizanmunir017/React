@@ -1,72 +1,42 @@
-import { useState } from 'react';
-import '../App.css'; // Instead of 'src/App.css'
-import {shoot} from './List.ts';
-import LifeCycle from './LifeCycle.tsx';
-import Ref  from './Ref.tsx';
-import { Reducer } from 'react';
-import Reducer_code from './Reducer_code.tsx';
-
-
-// Props definition
-// interface GreetingProps {
-//   name: string;
-// }
-
-// Functional component using props
-// function Greeting ({ name}:GreetingProps) {
-//   const [message, setMessage] = useState<string>('Hello');
-
-//   return (
-//     <div>
-//       <p>{message}, {name}!</p> {/* Using both state and props */}
-//       <button onClick={() => setMessage('Hey')}>Change Message</button>
-//     </div>
-//   );
-// }
-
-
-// Checking how many times a button has been clicked
-
-
+import { useState } from "react";
+import "../App.css"; // Instead of 'src/App.css'
+import { shoot } from "./List.ts";
+import LifeCycle from "./LifeCycle.tsx";
+import Ref from "./Ref.tsx";
+import Reducer_code from "./Reducer_code.tsx";
+import State_code from "./State_code.tsx";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"; // Correctly import Routes
 
 function App() {
-
-  const handleInput=(event:React.ChangeEvent<HTMLInputElement>, arg1:string)=>
-
-  {
-    setValue(event.target.value);  
-    console.log(arg1);  
-  }
-
-  const [count, setCount]= useState(0);
-  const [value,setValue]=useState(" ");
-  const [showText, setShowText] = useState(false); // State to control text visibility
-
-  function clickCount(){
-
-    setCount(count+1);
-  }
-
-  function handleEnter()
-  {
-    setShowText(true);
-  
-  }
-
   return (
-    <div>
-      {/* <p>Button clicked {count} times</p>
-     <button onClick={clickCount}>Increase</button>
-     <button onClick={()=>shoot("Faizan Scored a goal")}>Shoot</button>
-     <input type="text" onChange={(event)=>handleInput(event,"Munir")} value={value}></input>
-     <button onClick={(handleEnter)}>Enter</button>
-     {showText && <p>{value}</p>} */}
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/Reducer">Reducer</Link>
+            </li>
+            <li>
+              <Link to="/State">useState</Link>
+            </li>
+            <li>
+              <Link to="/Ref">useRef</Link>
+            </li>
+            <li>
+              <Link to="/LifeCycle">LifeCycle</Link>
+            </li>
+          </ul>
+        </nav>
 
-     {/* <LifeCycle></LifeCycle> */}
-
-     {/* <Ref></Ref> */}
-     <Reducer_code></Reducer_code>
-    </div>
+        {/* Use Routes instead of Switch */}
+        <Routes>
+          <Route path="/Reducer" element={<Reducer_code />} />
+          <Route path="/State" element={<State_code />} />
+          <Route path="/Ref" element={<Ref />} />
+          <Route path="/LifeCycle" element={<LifeCycle />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
